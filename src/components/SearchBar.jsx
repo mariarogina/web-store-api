@@ -17,6 +17,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
       className="btn btn-outline-success"
       type="submit"
       style={{ margin: "0 10px" }}
+      onSubmit={(e) => setSearchQuery(e.target.value)}
     >
       Search
     </button>
