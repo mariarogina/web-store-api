@@ -23,30 +23,61 @@ const Header = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item" >
-                <NavLink exact activeStyle={{color:"#cf7b4a"}} className="nav-link" aria-current="page" to="/" style={{color:"black"}}>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  activeStyle={{ color: "#cf7b4a" }}
+                  className="nav-link"
+                  aria-current="page"
+                  to="/"
+                  style={{ color: "black" }}
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink exact activeStyle={{color:"#cf7b4a"}} className="nav-link" to="/products" style={{color:"black"}}>
+                <NavLink
+                  exact
+                  activeStyle={{ color: "#cf7b4a" }}
+                  className="nav-link"
+                  to="/products"
+                  style={{ color: "black" }}
+                >
                   Products
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink exact activeStyle={{color:"#cf7b4a"}} className="nav-link" to="/about" style={{color:"black"}}>
+                <NavLink
+                  exact
+                  activeStyle={{ color: "#cf7b4a" }}
+                  className="nav-link"
+                  to="/about"
+                  style={{ color: "black" }}
+                >
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink exact activeStyle={{color:"#cf7b4a"}} className="nav-link" to="/contact" style={{color:"black"}}>
+                <NavLink
+                  exact
+                  activeStyle={{ color: "#cf7b4a" }}
+                  className="nav-link"
+                  to="/contact"
+                  style={{ color: "black" }}
+                >
                   Contact
                 </NavLink>
               </li>
             </ul>
-            <NavLink exact className="navbar-brand mx-auto fw-bold" to="/" style={{color:"#cf7b4a"}}>
+            <NavLink
+              exact
+              className="navbar-brand mx-auto fw-bold"
+              to="/"
+              style={{ color: "#cf7b4a" }}
+            >
               MISC-STORE
             </NavLink>
+
             <Login />
             <Signup />
             <CartButton />

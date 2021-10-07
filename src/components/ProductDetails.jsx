@@ -1,31 +1,30 @@
 import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
-import {addItemToCart, deleteItemFromCart} from '../redux/actions/index'
+import { addItemToCart, deleteItemFromCart } from "../redux/actions/index";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const ProductDetails = (props) => {
   const [cartButton, setCartButton] = useState("Add to cart");
   const productId = useParams();
-  const productInfo = props.myData.filter(x => x.id == productId.id);
+  const productInfo = props.myData.filter((x) => x.id == productId.id);
   const product = productInfo[0];
   console.log(product.id);
 
+  let history = useHistory();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
     if (cartButton === "Add to cart") {
-        setCartButton("Remove from cart")
-        dispatch(addItemToCart(product))
-       
+      setCartButton("Remove from cart");
+      dispatch(addItemToCart(product));
+    } else {
+      setCartButton("Add to cart");
+      dispatch(deleteItemFromCart(product));
     }
-    else{
-        
-        setCartButton("Add to cart")
-        dispatch(deleteItemFromCart(product))
-    }
-}
+  };
 
   return (
     <div>
@@ -47,6 +46,12 @@ const ProductDetails = (props) => {
               className="btn btn-outline-success my-5"
             >
               {cartButton}
+            </button>
+            <button
+              className="btn btn-outline-info "
+              onClick={() => history.goBack()}
+            >
+              Back
             </button>
           </div>
         </div>
