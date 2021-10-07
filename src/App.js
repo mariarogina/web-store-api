@@ -9,21 +9,52 @@ import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import ProductFetcher from './components/ProductFetcher';
 import ProductDetailsFetcher from './components/ProductDetailsFetcher';
+import { useEffect, useState } from 'react';
 
 import { Redirect, Route,Switch } from 'react-router';
 import './index.css';
 
 function App() {
+
+  const [myData, setMyData] = useState(null);
+  
+  //   function createData(id, title, price, description, category, image) {
+  //     return {id, title, price, description, category, image};
+  //   }
+    
+  
+    useEffect(() => {
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setMyData(
+           data );
+        });
+    }, []);
+  
+    if (!myData) {
+      return <div>Still Loading</div>;
+    }
+
   return (
     <>
     <Header/>
     <Switch>
-    <Route exact path="/" component={Home}/>
+    <Route exact path="/">
+    <Home myData={myData}/>
+    </Route>
     <Route exact path="/about" component={About}/>
     <Route exact path="/contact" component={Contact}/>
-    <Route exact path="/products" component={ProductFetcher}/>
+    <Route exact path="/products">
+    <Products myData={myData}/>
+    </Route>
     <Route exact path="/cart" component={Cart}/>
-    <Route exact path="/products/:id" component={ProductDetailsFetcher}/>
+    <Route exact path="/products/:id">
+    <ProductDetails myData={myData}/>
+    </Route>
     <Route exact path="/checkout" component={Checkout}/>
     <Redirect exact path="/"/>
     </Switch>
