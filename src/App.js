@@ -7,7 +7,6 @@ import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
-import SearchBar from "./components/SearchBar";
 import { useEffect, useState } from "react";
 
 import { Redirect, Route, Switch } from "react-router";
@@ -43,8 +42,6 @@ function App() {
           <Home myData={myData} />
         </Route>
         <Route exact path="/about" component={About} />
-
-        <Route exact path="/search" component={SearchBar} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/products">
           <Products myData={myData} />

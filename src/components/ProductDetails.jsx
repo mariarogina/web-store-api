@@ -43,15 +43,22 @@ const ProductDetails = (props) => {
             <p className="lead">{product.description}</p>
             <button
               onClick={() => handleAddToCart(product)}
-              className="btn btn-outline-success my-5"
+              className="btn btn-outline-success my-3"
             >
               {cartButton}
             </button>
             <button
-              className="btn btn-outline-info "
+              className="btn btn-outline-info my-3"
               onClick={() => history.goBack()}
             >
               Back
+            </button>
+
+            <button
+              className="btn btn-outline-info my-3"
+              onClick={() => history.push("/cart")}
+            >
+              To cart
             </button>
           </div>
         </div>
