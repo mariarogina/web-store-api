@@ -7,8 +7,6 @@ import Products from './components/Products';
 import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
-import ProductFetcher from './components/ProductFetcher';
-import ProductDetailsFetcher from './components/ProductDetailsFetcher';
 import { useEffect, useState } from 'react';
 
 import { Redirect, Route,Switch } from 'react-router';

@@ -1,12 +1,10 @@
 import React from "react";
-import ProductFetcher from "./ProductFetcher";
 import Products from "./Products";
-
 
 const Home = (props) => {
   return (
-    <div style={{width:'1100px', textAlign:"center", margin:"auto"}}>
-     <Products myData={props.myData}/>
+    <div style={{ width: "1100px", textAlign: "center", margin: "auto" }}>
+      <Products myData={props.myData} />
     </div>
   );
 };
